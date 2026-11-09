@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Anatoly Dovzhik - Portfolio</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E7E2DE}
+a{color:#2B4C7E}a:hover{color:#1D3459}
+html{scroll-behavior:smooth}
+.dd-item{transition:background-color .12s ease}
+.media{transition:opacity .15s ease}
+.sec-title{position:relative;z-index:0;align-self:flex-start;display:inline-block}
+.sec-title::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:4px;transform:skewX(-14deg);background:color-mix(in srgb,var(--acc,#54457F) 13%,transparent)}
+.media:hover{opacity:.88}
+.dd-item:hover,.dd-item:focus-visible{background:#E2DAD4;color:#211C1A;outline:none}
+</style>
+</helmet>
+<div id="top" style="background: {{ground}}; color: #211C1A; font-family: Inter, sans-serif; min-height: 100vh">
+<div style="max-width: 960px; margin: 0 auto; padding: 40px 24px 120px; display: flex; flex-direction: column; gap: 104px">
+
+<header style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h1 style="margin: 0; font-size: 56px; line-height: 1.05; font-weight: 700; letter-spacing: -0.025em">Anatoly Dovzhik</h1>
+<p style="margin: 0; font-size: 20px; color: #5E5550; font-weight: 500">Game Developer <span style="color: #9C928B">|</span> C++ <span style="color: #9C928B">|</span> Unreal Engine</p>
+</div>
+<nav style="display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start">
+
+<div onMouseEnter="{{ openShipped }}" onMouseLeave="{{ close }}" onFocus="{{ openShipped }}" style="position: relative">
+<a href="#shipped" onClick="{{ close }}" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; border: 1px solid #C4BBB4; border-radius: 8px; background: #F2EEEB; color: #211C1A; font-size: 15px; font-weight: 600; text-decoration: none; box-sizing: border-box">Shipped Projects<svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#5E5550" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></a>
+<sc-if value="{{ shippedOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; top: 100%; left: 0; padding-top: 8px; z-index: 20; min-width: 220px">
+<div style="background: #F2EEEB; border: 1px solid #CDC5BF; border-radius: 10px; padding: 6px; display: flex; flex-direction: column; box-shadow: 0 8px 24px rgba(33, 28, 26, 0.10)">
+<sc-for list="{{ shipped }}" as="p" hint-placeholder-count="2">
+<a class="dd-item" href="{{ p.href }}" onClick="{{ close }}" style="display: block; padding: 12px 14px; border-radius: 6px; text-decoration: none; color: #211C1A; font-size: 15px; font-weight: 500">{{ p.title }}</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+
+<div onMouseEnter="{{ openPersonal }}" onMouseLeave="{{ close }}" onFocus="{{ openPersonal }}" style="position: relative">
+<a href="#personal" onClick="{{ close }}" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; border: 1px solid #C4BBB4; border-radius: 8px; background: #F2EEEB; color: #211C1A; font-size: 15px; font-weight: 600; text-decoration: none; box-sizing: border-box">Personal Projects<svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#5E5550" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></a>
+<sc-if value="{{ personalOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; top: 100%; left: 0; padding-top: 8px; z-index: 20; min-width: 220px">
+<div style="background: #F2EEEB; border: 1px solid #CDC5BF; border-radius: 10px; padding: 6px; display: flex; flex-direction: column; box-shadow: 0 8px 24px rgba(33, 28, 26, 0.10)">
+<sc-for list="{{ personal }}" as="p" hint-placeholder-count="1">
+<a class="dd-item" href="{{ p.href }}" onClick="{{ close }}" style="display: block; padding: 12px 14px; border-radius: 6px; text-decoration: none; color: #211C1A; font-size: 15px; font-weight: 500">{{ p.title }}</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+
+<a href="https://github.com/Ligvest" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; border: 1px solid #C4BBB4; border-radius: 8px; background: #F2EEEB; color: #211C1A; font-size: 15px; font-weight: 600; text-decoration: none; box-sizing: border-box"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5E5550" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.5c-3 .9-3-1.5-4.2-1.8M10 15v-2.3a2 2 0 0 0-.6-1.6c2-.2 4.1-1 4.1-4.4a3.4 3.4 0 0 0-.9-2.4 3.2 3.2 0 0 0-.1-2.4s-.7-.2-2.4.9a8.2 8.2 0 0 0-4.2 0C4.2 1.7 3.5 1.9 3.5 1.9a3.2 3.2 0 0 0-.1 2.4 3.4 3.4 0 0 0-.9 2.4c0 3.4 2.1 4.2 4.1 4.4a2 2 0 0 0-.6 1.6V15"></path></svg>GitHub</a>
+
+<a href="https://docs.google.com/document/d/15j-m2iJgEjrZiUMz4ddUXSY9H3zqWmUu8UGOPkLCD7Y/export?format=pdf" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; font-size: 15px; font-weight: 600; text-decoration: none; box-sizing: border-box"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#FFFFFF" stroke-width="1.6"><path d="M7 1.5v8M3.5 6 7 9.5 10.5 6M2 12.5h10"></path></svg>Download CV</a>
+</nav>
+</header>
+
+<section id="about" style="display: flex; flex-direction: column; gap: 8px; scroll-margin-top: 32px">
+<h2 class="sec-title" style="--acc: {{accent}}; margin: 0 0 28px -18px; padding: 6px 18px; font-size: 32px; font-weight: 700; letter-spacing: -0.015em">About</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; padding-top: 32px; border-top: 1px solid #CDC5BF">
+<div style="flex: 0 1 240px; display: flex; flex-direction: column; gap: 20px">
+<img src="./assets/945023cea3db8dbd8abecf39a579f9ae.jpg" alt="Anatoly Dovzhik" style="display: block; width: 240px; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; border-radius: 12px; background: #D9D2CD">
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 15px">
+<a href="mailto:dovzhik.anatoly@gmail.com" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #211C1A"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5E5550" stroke-width="1.5"><rect x="1.5" y="3" width="13" height="10" rx="1.5"></rect><path d="m2 4 6 5 6-5"></path></svg>dovzhik.anatoly@gmail.com</a>
+<a href="https://www.linkedin.com/in/ligvest/" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #211C1A"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5E5550" stroke-width="1.5"><rect x="1.5" y="1.5" width="13" height="13" rx="2"></rect><path d="M5 7v4.5M5 4.6v.1M8 11.5V7m0 2c0-1.2.8-2 1.8-2s1.7.7 1.7 2v2.5"></path></svg>LinkedIn</a>
+<a href="https://t.me/ligvest" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #211C1A"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#5E5550" stroke-width="1.5" stroke-linejoin="round"><path d="M14.5 2 1.5 7.2l4.3 1.5L12 4.5 7.3 9.6l5 4 2.2-11.6Z"></path></svg>Telegram</a>
+</div>
+</div>
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-size: 18px; line-height: 1.7">I'm a C++ gameplay programmer with 6+ years of C++, 4.5 of them in games. I worked on the Biomutant console port to PS5, Xbox Series X|S and Switch and built core gameplay for a mobile match-3 at Voki Games (Playrix).</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: #433B37">I like clean, data-driven gameplay systems and performance work. Based in Oviedo, Spain. Open to remote work and relocation.</p>
+</div>
+</div>
+</section>
+
+<section id="shipped" style="display: flex; flex-direction: column; gap: 8px; scroll-margin-top: 32px">
+<h2 class="sec-title" style="--acc: {{accent}}; margin: 0 0 28px -18px; padding: 6px 18px; font-size: 32px; font-weight: 700; letter-spacing: -0.015em">Shipped Projects</h2>
+
+<article id="biomutant" style="display: flex; flex-wrap: wrap; gap: 32px; padding: 32px 0; border-top: 1px solid #CDC5BF; scroll-margin-top: 32px">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h3 style="margin: 0; font-size: 24px; font-weight: 700">Biomutant</h3>
+<dl style="margin: 0; display: grid; grid-template-columns: 140px minmax(0, 1fr); column-gap: 20px; row-gap: 12px; font-size: 15px; line-height: 1.55">
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Link</dt><dd style="margin: 0"><a href="https://store.steampowered.com/app/597820/BIOMUTANT/" target="_blank" rel="noopener">Steam page</a></dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Job Title</dt><dd style="margin: 0">Unreal Engine C++ Game Developer</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Key Contributions</dt><dd style="margin: 0"><ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px"><li>Ported the game to new console platforms</li><li>Fixed migration regressions and legacy gameplay/UI bugs</li><li>Improved performance through profiling and optimization</li></ul></dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Studio</dt><dd style="margin: 0">Fractured Byte</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Platforms</dt><dd style="margin: 0">PS5, Xbox Series X|S, Nintendo Switch</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Engine &amp; Tools</dt><dd style="margin: 0">UE4, C++, Unreal Insights, Console dev kits</dd>
+</dl>
+</div>
+<a class="media" href="https://store.steampowered.com/app/597820/BIOMUTANT/" target="_blank" rel="noopener" style="flex: 1 1 360px; min-width: 0; display: block; align-self: flex-start; border-radius: 10px"><img src="./assets/7ec6d215b764f93f4cad9e7c57728850.jpg" alt="Biomutant key art" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; border-radius: 10px; background: #D9D2CD"></a>
+</article>
+
+<article id="match3" style="display: flex; flex-wrap: wrap; gap: 32px; padding: 32px 0; border-top: 1px solid #CDC5BF; border-bottom: 1px solid #CDC5BF; scroll-margin-top: 32px">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h3 style="margin: 0; font-size: 24px; font-weight: 700">Mystery Matters</h3>
+<dl style="margin: 0; display: grid; grid-template-columns: 140px minmax(0, 1fr); column-gap: 20px; row-gap: 12px; font-size: 15px; line-height: 1.55">
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Link</dt><dd style="margin: 0"><a href="https://play.google.com/store/apps/details?id=com.playrix.mysterymatters&amp;hl=en" target="_blank" rel="noopener">Google Play page</a></dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Job Title</dt><dd style="margin: 0">C++ Core Gameplay Developer</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Key Contributions</dt><dd style="margin: 0"><ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px"><li>Developed and refined gameplay mechanics and tools</li><li>Fixed legacy and newly introduced bugs</li><li>Profiled and optimized gameplay code</li></ul></dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Studio</dt><dd style="margin: 0">Voki Games (Playrix)</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Platforms</dt><dd style="margin: 0">Windows, iOS, Android</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Engine &amp; Tools</dt><dd style="margin: 0">VSO (custom game engine), C++, Tracy, Claude Code</dd>
+</dl>
+</div>
+<a class="media" href="https://play.google.com/store/apps/details?id=com.playrix.mysterymatters&amp;hl=en" target="_blank" rel="noopener" style="flex: 1 1 360px; min-width: 0; display: block; align-self: flex-start; border-radius: 10px"><img src="./assets/90f51b749482511d2cc969d3457d1e0c.jpg" alt="Mystery Matters key art" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; border-radius: 10px; background: #D9D2CD"></a>
+</article>
+</section>
+
+<section id="personal" style="display: flex; flex-direction: column; gap: 8px; scroll-margin-top: 32px">
+<h2 class="sec-title" style="--acc: {{accent}}; margin: 0 0 28px -18px; padding: 6px 18px; font-size: 32px; font-weight: 700; letter-spacing: -0.015em">Personal Projects</h2>
+
+<article id="aura" style="display: flex; flex-wrap: wrap; gap: 32px; padding: 32px 0; border-top: 1px solid #CDC5BF; border-bottom: 1px solid #CDC5BF; scroll-margin-top: 32px">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h3 style="margin: 0; font-size: 24px; font-weight: 700">Aura - Multiplayer ARPG</h3>
+<dl style="margin: 0; display: grid; grid-template-columns: 140px minmax(0, 1fr); column-gap: 20px; row-gap: 12px; font-size: 15px; line-height: 1.55">
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Link</dt><dd style="margin: 0"><a href="https://github.com/Ligvest/GASLearning_Aura" target="_blank" rel="noopener">GitHub</a></dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Job Title</dt><dd style="margin: 0">Solo developer</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Key Technologies</dt><dd style="margin: 0">GAS, Replication, MVC, Animations, Behavior Tree, Blueprints</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Platforms</dt><dd style="margin: 0">PC</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Engine &amp; Tools</dt><dd style="margin: 0">UE5, C++</dd>
+<dt style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #5E5550; padding-top: 2px">Art Assets</dt><dd style="margin: 0">Free third-party models, animations and VFX</dd>
+</dl>
+</div>
+<a class="media" href="https://github.com/Ligvest/GASLearning_Aura" target="_blank" rel="noopener" style="flex: 1 1 360px; min-width: 0; display: block; align-self: flex-start; border-radius: 10px"><img src="./assets/4e70feb7f22e80d3882083933d48a925.jpg" alt="Aura gameplay screenshot" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; border-radius: 10px; background: #D9D2CD"></a>
+</article>
+</section>
+
+<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 14px; color: #5E5550">
+<span>Anatoly Dovzhik · 2026</span>
+<a href="#top" style="color: #5E5550">Back to top</a>
+</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ground":{"editor":"color","default":"#E7E2DE","options":["#E7E2DE","#E6DFDF","#E9E4DB","#E3E2E6"]},"accent":{"editor":"color","default":"#54457F","options":["#2B4C7E","#7A3B3B","#54457F","#2B4C7E"]},"$preview":{"width":1280,"height":3300}}'>
+class Component extends DCLogic {
+renderVals() {
+const s = this.state || {};
+const close = () => this.setState({ open: null });
+return {
+ground: this.props.ground ?? '#E7E2DE',
+accent: this.props.accent ?? '#54457F',
+shippedOpen: s.open === 'shipped',
+personalOpen: s.open === 'personal',
+openShipped: () => this.setState({ open: 'shipped' }),
+openPersonal: () => this.setState({ open: 'personal' }),
+close: close,
+shipped: [
+{ title: 'Biomutant', href: '#biomutant' },
+{ title: 'Mystery Matters', href: '#match3' }
+],
+personal: [
+{ title: 'Aura', href: '#aura' }
+]
+};
+}
+}
+</script>
+</body>
+</html>
