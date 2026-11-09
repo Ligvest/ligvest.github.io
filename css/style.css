@@ -1,6 +1,7 @@
 /* ---------- Theme ---------- */
 :root {
   --bg: #E7E2DE;
+  --side: #D6CFD4;      /* edge tint of the side gradient */
   --surface: #F2EEEB;
   --surface-hover: #E2DAD4;
   --media-bg: #D9D2CD;
@@ -26,12 +27,26 @@ body {
   font-family: Inter, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+/* Soft tinted gradient on the empty side areas; plain background under the content column */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to right,
+    var(--side) 0,
+    var(--bg) calc(50% - 520px),
+    var(--bg) calc(50% + 520px),
+    var(--side) 100%);
+}
+
 a { color: var(--link); }
 a:hover { color: var(--link-hover); }
 img { display: block; max-width: 100%; }
 
 .page {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 40px 24px 120px;
   display: flex;
@@ -153,7 +168,15 @@ img { display: block; max-width: 100%; }
 .contacts svg { stroke: var(--muted); flex: none; }
 .about__text { flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
 .about__text p { margin: 0; font-size: 18px; line-height: 1.7; }
-.about__text p + p { color: var(--text-2); }
+.about__text { max-width: 720px; }
+.about__text .about__note { color: var(--text-2); }
+.about__text .about__lead {
+  font-size: 26px;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
 
 /* ---------- Projects ---------- */
 .project {
