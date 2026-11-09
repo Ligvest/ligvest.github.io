@@ -1,8 +1,6 @@
 /* ---------- Theme ---------- */
 :root {
-  --bg: #E7E2DE;
-  --side: #D6CFD4;      /* edge tint of the side gradient */
-  --surface: #F2EEEB;
+  --bg: #E7E2DE;  --surface: #F2EEEB;
   --surface-hover: #E2DAD4;
   --media-bg: #D9D2CD;
   --line: #CDC5BF;
@@ -27,20 +25,6 @@ body {
   font-family: Inter, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-/* Soft tinted gradient on the empty side areas; plain background under the content column */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: linear-gradient(to right,
-    var(--side) 0,
-    var(--bg) calc(50% - 520px),
-    var(--bg) calc(50% + 520px),
-    var(--side) 100%);
-}
-
 a { color: var(--link); }
 a:hover { color: var(--link-hover); }
 img { display: block; max-width: 100%; }
